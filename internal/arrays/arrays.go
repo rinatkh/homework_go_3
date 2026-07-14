@@ -1,79 +1,67 @@
 package arrays
 
-// В этом блоке нужно закрепить массивы: фиксированная длина, zero value,
-// индексирование, value semantics и сравнение массивов.
+// Блок закрепляет фиксированную длину массива, индексы, копирование,
+// сравнение и работу с небольшими матрицами.
 
-func ZeroArray() [3]int {
-	// TODO: вернуть массив из трёх int со zero value.
-	return [3]int{}
+// 01. FirstOfThree возвращает первый элемент массива из трёх чисел.
+// TODO: получите значение по правильному индексу.
+func FirstOfThree(items [3]int) int { return 0 }
+
+// 02. LastOfFour возвращает последний элемент массива из четырёх строк.
+// TODO: решение не должно зависеть от конкретных значений массива.
+func LastOfFour(items [4]string) string { return "" }
+
+// 03. SetMiddle возвращает копию массива с заменённым средним элементом.
+// TODO: исходный аргумент снаружи функции не должен измениться.
+func SetMiddle(items [3]int, value int) [3]int { return [3]int{} }
+
+// 04. SwapEdges меняет местами первый и последний элементы копии массива.
+// TODO: два внутренних элемента должны сохранить свои позиции.
+func SwapEdges(items [4]int) [4]int { return [4]int{} }
+
+// 05. SumThree возвращает сумму трёх элементов.
+// TODO: учтите все позиции массива.
+func SumThree(items [3]int) int { return 0 }
+
+// 06. AverageFour возвращает целочисленное среднее четырёх чисел.
+// TODO: используйте обычные правила целочисленного деления Go.
+func AverageFour(items [4]int) int { return 0 }
+
+// 07. ReverseFive возвращает массив в обратном порядке.
+// TODO: первый элемент должен стать последним, второй — предпоследним и т.д.
+func ReverseFive(items [5]int) [5]int { return [5]int{} }
+
+// 08. EqualPairs сравнивает два массива строк целиком.
+// TODO: порядок элементов имеет значение.
+func EqualPairs(a, b [2]string) bool { return false }
+
+// 09. CopyAndSet возвращает исходную копию и изменённую копию массива.
+// TODO: измените только элемент с индексом index во втором результате.
+// В тестах index всегда находится в допустимом диапазоне.
+func CopyAndSet(items [3]int, index, value int) ([3]int, [3]int) {
+	return [3]int{}, [3]int{}
 }
 
-func Weekdays() [7]string {
-	// TODO: вернуть массив дней недели: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
-	return [7]string{}
-}
+// 10. CountTrue считает true в массиве из пяти bool.
+// TODO: false не увеличивает счётчик.
+func CountTrue(items [5]bool) int { return 0 }
 
-func SetAt(numbers [5]int, index int, value int) [5]int {
-	// TODO: вернуть копию массива с изменённым элементом. Некорректный index игнорировать.
-	return [5]int{}
-}
+// 11. ContainsFour проверяет наличие target в массиве.
+// TODO: верните true при первом совпадении, иначе false.
+func ContainsFour(items [4]int, target int) bool { return false }
 
-func Sum(numbers [5]int) int {
-	// TODO: посчитать сумму элементов массива.
-	return 0
-}
+// 12. MaxFour возвращает максимальное значение массива.
+// TODO: корректно обработайте массив, состоящий только из отрицательных чисел.
+func MaxFour(items [4]int) int { return 0 }
 
-func Average(numbers [5]int) float64 {
-	// TODO: посчитать среднее значение массива.
-	return 0
-}
+// 13. MainDiagonalSum возвращает сумму главной диагонали матрицы 3x3.
+// TODO: используйте элементы [0][0], [1][1] и [2][2].
+func MainDiagonalSum(matrix [3][3]int) int { return 0 }
 
-func Max(numbers [5]int) int {
-	// TODO: вернуть максимальный элемент массива.
-	return 0
-}
+// 14. CornersSum возвращает сумму четырёх углов матрицы 3x3.
+// TODO: центральный элемент и середины сторон не учитываются.
+func CornersSum(matrix [3][3]int) int { return 0 }
 
-func Reverse(numbers [5]int) [5]int {
-	// TODO: вернуть новый массив в обратном порядке.
-	return [5]int{}
-}
-
-func Contains(numbers [5]int, target int) bool {
-	// TODO: проверить, есть ли target в массиве.
-	return false
-}
-
-func CountValue(numbers [5]int, target int) int {
-	// TODO: посчитать количество вхождений target.
-	return 0
-}
-
-func Equal(left, right [5]int) bool {
-	// TODO: сравнить массивы.
-	return false
-}
-
-func CopyAndSet(numbers [5]int, index int, value int) ([5]int, [5]int) {
-	// TODO: вернуть исходный массив и изменённую копию.
-	return [5]int{}, [5]int{}
-}
-
-func FirstLast(numbers [5]int) (int, int) {
-	// TODO: вернуть первый и последний элемент.
-	return 0, 0
-}
-
-func ToSlice(numbers [5]int) []int {
-	// TODO: вернуть независимую слайс-копию массива.
-	return nil
-}
-
-func MatrixDiagonalSum(matrix [3][3]int) int {
-	// TODO: посчитать сумму главной диагонали.
-	return 0
-}
-
-func CompareBySum(left, right [5]int) string {
-	// TODO: вернуть "left", "right" или "equal" в зависимости от суммы элементов.
-	return ""
-}
+// 15. RotateRight сдвигает массив вправо на одну позицию.
+// TODO: последний элемент должен перейти в начало.
+func RotateRight(items [4]int) [4]int { return [4]int{} }

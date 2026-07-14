@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/rinatsm/go-course/homework3/internal/arrays"
+	arrays "github.com/rinatkh/homework_go_3/internal/arrays"
 )
 
 func main() {

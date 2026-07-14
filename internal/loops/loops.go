@@ -1,79 +1,68 @@
 package loops
 
-// В этом блоке нужно закрепить циклы: for, range, break, continue и вложенные циклы.
-// Внутри функций оставлены заготовки. Ориентируйтесь на комментарии и unit-тесты.
-
-func SumTo(n int) int {
-	// TODO: вернуть сумму чисел от 1 до n. Если n <= 0, вернуть 0.
-	return 0
+type User struct {
+	Name   string
+	Active bool
 }
 
-func Factorial(n int) int {
-	// TODO: вернуть n!. Для отрицательных n вернуть 0, для 0 вернуть 1.
-	return 0
-}
+// 01. SumTo считает сумму целых чисел от 1 до n включительно.
+// TODO: для n <= 0 верните 0.
+func SumTo(n int) int { return 0 }
 
-func CountEven(numbers []int) int {
-	// TODO: посчитать количество чётных чисел.
-	return 0
-}
+// 02. SumBetween считает сумму от start до end включительно.
+// TODO: если start > end, верните 0.
+func SumBetween(start, end int) int { return 0 }
 
-func FindFirstNegative(numbers []int) (int, bool) {
-	// TODO: вернуть индекс первого отрицательного числа и true. Если нет — -1 и false.
-	return 0, false
-}
+// 03. CountDown возвращает числа от n до 1.
+// TODO: для n <= 0 верните пустой ненулевой слайс.
+func CountDown(n int) []int { return nil }
 
-func SkipMultiplesOfThree(n int) []int {
-	// TODO: вернуть числа от 1 до n, пропуская кратные 3 через continue.
-	return nil
-}
+// 04. Factorial вычисляет n! циклом.
+// TODO: 0! и 1! равны 1; для отрицательного n верните 0.
+func Factorial(n int) int { return 0 }
 
-func MultiplicationRow(n, limit int) []int {
-	// TODO: вернуть n*1, n*2, ..., n*limit. Если limit <= 0, вернуть пустой слайс.
-	return nil
-}
+// 05. CountEven считает чётные числа в слайсе.
+// TODO: ноль считается чётным.
+func CountEven(items []int) int { return 0 }
 
-func ReverseStringByRunes(s string) string {
-	// TODO: перевернуть строку по рунам, чтобы корректно работал Unicode.
-	return ""
-}
+// 06. FirstNegative возвращает первое отрицательное значение и true.
+// TODO: если отрицательных чисел нет, верните zero value и false.
+func FirstNegative(items []int) (int, bool) { return 0, false }
 
-func CountRunes(s string) map[rune]int {
-	// TODO: посчитать количество каждой руны в строке.
-	return nil
-}
+// 07. SumWithoutZeros суммирует элементы, пропуская нули.
+// TODO: используйте управляющую конструкцию, которая переходит
+// к следующей итерации.
+func SumWithoutZeros(items []int) int { return 0 }
 
-func FizzBuzz(n int) []string {
-	// TODO: вернуть FizzBuzz для чисел от 1 до n.
-	return nil
-}
+// 08. SumUntilLimit добавляет элементы по порядку, пока следующий элемент
+// не сделал бы сумму больше limit.
+// TODO: в этот момент остановите цикл. Для limit < 0 верните 0.
+func SumUntilLimit(items []int, limit int) int { return 0 }
 
-func TriangleRows(height int) []string {
-	// TODO: построить строки "*", "**", "***" ... до height.
-	return nil
-}
+// 09. DoubleInPlace умножает каждый элемент слайса на 2.
+// TODO: измените исходный слайс, а не копию value из range.
+func DoubleInPlace(items []int) {}
 
-func SumUntilLimit(numbers []int, limit int) int {
-	// TODO: складывать числа, пока следующая прибавка не превысит limit. Используйте break.
-	return 0
-}
+// 10. ReplaceNegativeInPlace заменяет отрицательные элементы на replacement.
+// TODO: ноль и положительные значения должны сохраниться.
+func ReplaceNegativeInPlace(items []int, replacement int) {}
 
-func Flatten(matrix [][]int) []int {
-	// TODO: развернуть матрицу в один слайс через вложенные циклы.
-	return nil
-}
+// 11. CountActive считает активных пользователей.
+// TODO: порядок пользователей не влияет на количество.
+func CountActive(users []User) int { return 0 }
 
-func MaxInSlice(numbers []int) (int, bool) {
-	// TODO: вернуть максимум и true. Для пустого слайса вернуть 0 и false.
-	return 0, false
-}
+// 12. ActiveNames возвращает имена только активных пользователей.
+// TODO: сохраните исходный порядок.
+func ActiveNames(users []User) []string { return nil }
 
-func UniquePreserveOrder(numbers []int) []int {
-	// TODO: вернуть уникальные числа с сохранением порядка первого появления.
-	return nil
-}
+// 13. RuneCount считает Unicode-символы через range по строке.
+// TODO: результат для кириллицы и emoji не должен равняться числу байт.
+func RuneCount(text string) int { return 0 }
 
-func RepeatString(word string, times int) string {
-	// TODO: повторить строку times раз. Если times <= 0, вернуть пустую строку.
-	return ""
-}
+// 14. RuneByteIndexes возвращает байтовые индексы всех rune в строке.
+// TODO: используйте индекс, который отдаёт range по string.
+func RuneByteIndexes(text string) []int { return nil }
+
+// 15. RepeatEach повторяет каждый элемент times раз подряд.
+// TODO: для times <= 0 верните пустой ненулевой слайс.
+func RepeatEach(items []int, times int) []int { return nil }

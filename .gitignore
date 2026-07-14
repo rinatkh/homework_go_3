@@ -1,6 +1,4 @@
 bin/
 coverage.out
 .DS_Store
-.idea/
-*.test
-*.out
+.idea

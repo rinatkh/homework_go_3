@@ -2,19 +2,32 @@ package loops
 
 import "fmt"
 
-// Example собирает демонстрацию по циклам в одну строку.
 func Example() string {
-	index, found := FindFirstNegative([]int{10, 5, -2, 7})
-	maxValue, ok := MaxInSlice([]int{4, 9, 1})
+	numbers := []int{1, -2, 0, 4}
+	doubled := append([]int(nil), numbers...)
+	DoubleInPlace(doubled)
+	replaced := append([]int(nil), numbers...)
+	ReplaceNegativeInPlace(replaced, 9)
+	negative, found := FirstNegative(numbers)
+	users := []User{{Name: "Maria", Active: true}, {Name: "Alex"}, {Name: "Ira", Active: true}}
+
 	return fmt.Sprintf(
-		"sum=%d factorial=%d even=%d negativeIndex=%d found=%t fizz=%v max=%d ok=%t",
+		"sum=%d between=%d countdown=%v factorial=%d even=%d negative=%d/%t noZero=%d limited=%d doubled=%v replaced=%v active=%d names=%v runes=%d indexes=%v repeated=%v",
 		SumTo(5),
+		SumBetween(3, 6),
+		CountDown(4),
 		Factorial(5),
-		CountEven([]int{1, 2, 3, 4, 6}),
-		index,
+		CountEven(numbers),
+		negative,
 		found,
-		FizzBuzz(5),
-		maxValue,
-		ok,
+		SumWithoutZeros(numbers),
+		SumUntilLimit([]int{3, 4, 5}, 7),
+		doubled,
+		replaced,
+		CountActive(users),
+		ActiveNames(users),
+		RuneCount("Go🙂"),
+		RuneByteIndexes("Яa🙂"),
+		RepeatEach([]int{1, 2}, 2),
 	)
 }

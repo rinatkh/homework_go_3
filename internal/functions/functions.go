@@ -1,79 +1,73 @@
 package functions
 
-// В этом блоке нужно закрепить функции: параметры, return, несколько возвращаемых значений,
-// variadic-параметры, функции как значения и замыкания.
-
-func FullName(firstName, lastName string) string {
-	// TODO: вернуть имя и фамилию через пробел без лишних пробелов по краям.
-	return ""
+type User struct {
+	ID     int
+	Name   string
+	Active bool
 }
 
-func PriceWithDiscount(price float64, discountPercent float64) float64 {
-	// TODO: применить скидку. Некорректные значения должны давать 0.
-	return 0
-}
+// 01. SafeDivide выполняет целочисленное деление.
+// TODO: при b == 0 верните 0 и ошибку "division by zero".
+func SafeDivide(a, b int) (int, error) { return 0, nil }
 
-func SafeDivide(a, b int) (int, bool) {
-	// TODO: безопасно поделить a на b. При b == 0 вернуть 0, false.
-	return 0, false
-}
+// 02. FindUserByID ищет пользователя по ID.
+// TODO: найденный пользователь возвращается с true; отсутствие — User{} и false.
+func FindUserByID(users []User, id int) (User, bool) { return User{}, false }
 
-func MinMax(a, b int) (int, int) {
-	// TODO: вернуть сначала минимум, потом максимум.
-	return 0, 0
-}
+// 03. FindActiveUser ищет пользователя с нужным ID только среди активных.
+// TODO: неактивный пользователь считается ненайденным.
+func FindActiveUser(users []User, id int) (User, bool) { return User{}, false }
 
-func NormalizeEmail(email string) string {
-	// TODO: убрать пробелы по краям и привести email к нижнему регистру.
-	return ""
-}
+// 04. SumAll складывает произвольное количество чисел.
+// TODO: вызов без аргументов должен вернуть 0.
+func SumAll(numbers ...int) int { return 0 }
 
-func FormatUser(id int, name string, active bool) string {
-	// TODO: вернуть строку вида "#7 Maria (active)" или "#7 Maria (inactive)".
-	return ""
-}
+// 05. Apply вызывает переданную функцию op для a и b.
+// TODO: верните результат op без изменения аргументов.
+func Apply(a, b int, op func(int, int) int) int { return 0 }
 
-func ApplyOperation(a, b int, operation func(int, int) int) int {
-	// TODO: применить operation к a и b. Если operation == nil, вернуть 0.
-	return 0
-}
+// 06. ApplyIf применяет transform к value только при allowed=true.
+// TODO: при false верните исходное value и не вызывайте transform.
+func ApplyIf(value int, allowed bool, transform func(int) int) int { return 0 }
 
-func SumVariadic(numbers ...int) int {
-	// TODO: сложить любое количество чисел.
-	return 0
-}
+// 07. NewCounter создаёт замыкание-счётчик.
+// TODO: первый вызов возвращённой функции должен вернуть start+1,
+// каждый следующий — ещё на единицу больше.
+func NewCounter(start int) func() int { return func() int { return 0 } }
 
-func BuildGreeting(language, name string) string {
-	// TODO: ru -> "Привет, name", en -> "Hello, name", default -> "Hi, name".
-	return ""
-}
+// 08. NewAccumulator создаёт замыкание с накопленной суммой.
+// TODO: каждый вызов добавляет аргумент к текущему состоянию и возвращает сумму.
+func NewAccumulator(initial int) func(int) int { return func(int) int { return 0 } }
 
-func ValidatePassword(password string) (bool, string) {
-	// TODO: проверить длину >= 8 и наличие цифры. Вернуть false с причиной или true, "ok".
-	return false, ""
-}
+// 09. MakeMultiplier возвращает функцию умножения на factor.
+// TODO: factor должен сохраняться внутри возвращённой функции.
+func MakeMultiplier(factor int) func(int) int { return func(int) int { return 0 } }
 
-func SplitFullName(fullName string) (string, string) {
-	// TODO: разделить строку на имя и фамилию через strings.Fields.
-	return "", ""
-}
+// 10. DeferOrder возвращает строку, показывающую порядок defer.
+// TODO: тело добавляет "body", затем зарегистрированы defer "first" и "second".
+// Итоговая строка должна быть "body-second-first".
+func DeferOrder() (result string) { return "" }
 
-func CalcOrderTotal(price, delivery, discount float64) float64 {
-	// TODO: посчитать итог заказа: цена со скидкой + доставка.
-	return 0
-}
+// 11. CaptureDeferArgument демонстрирует вычисление аргумента defer сразу.
+// TODO: сначала value="first", затем зарегистрируйте defer с value как параметром,
+// после регистрации поменяйте value на "second". Верните захваченное значение.
+func CaptureDeferArgument() (result string) { return "" }
 
-func MakeCounter(start int) func() int {
-	// TODO: вернуть функцию, которая при каждом вызове увеличивает счётчик на 1.
-	return nil
-}
+// 12. ReadDeferredVariable демонстрирует чтение переменной deferred-замыканием.
+// TODO: deferred-функция без параметров должна прочитать value после того,
+// как оно изменилось с "first" на "second".
+func ReadDeferredVariable() (result string) { return "" }
 
-func Swap(a, b string) (string, string) {
-	// TODO: поменять значения местами.
-	return "", ""
-}
+// 13. IncrementNamedResult возвращает value, увеличенный deferred-функцией на 1.
+// TODO: используйте именованное возвращаемое значение.
+func IncrementNamedResult(value int) (result int) { return 0 }
 
-func Average(numbers ...int) (float64, bool) {
-	// TODO: вернуть среднее и true. Если чисел нет, вернуть 0 и false.
-	return 0, false
+// 14. RunWithCleanup выполняет action, а cleanup откладывает до выхода.
+// TODO: верните две строки в порядке фактического выполнения: action, cleanup.
+func RunWithCleanup(action, cleanup func() string) (events []string) { return nil }
+
+// 15. ChooseOperation возвращает функцию для "add", "sub" или "mul".
+// TODO: для неизвестного имени верните nil и false.
+func ChooseOperation(name string) (func(int, int) int, bool) {
+	return nil, false
 }

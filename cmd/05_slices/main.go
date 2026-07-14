@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/rinatsm/go-course/homework3/internal/slices"
+	slices "github.com/rinatkh/homework_go_3/internal/slices"
 )
 
 func main() {

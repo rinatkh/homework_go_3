@@ -2,21 +2,40 @@ package slices
 
 import "fmt"
 
-// Example собирает демонстрацию по слайсам в одну строку.
 func Example() string {
-	numbers := []int{5, 2, 8, 2, 1}
-	avg, ok := Average(numbers)
-	copyOfNumbers := CopySlice(numbers)
-	ReverseInPlace(copyOfNumbers)
+	source := []int{10, 20, 30, 40}
+	_, regularLen, regularCap := SliceInfo(source, 1, 3)
+	_, limitedLen, limitedCap := FullSliceInfo(source, 1, 3, 3)
+
+	mutated := MutateWindowInFunction([]int{10, 20, 30, 40}, 1, 3, 999)
+	appendedSource, appendedPart := AppendWindowInFunction([]int{10, 20, 30, 40}, 1, 3, 777)
+	limitedSource, limitedPart := AppendLimitedWindowInFunction([]int{10, 20, 30, 40}, 1, 3, 777)
+
+	original := make([]int, 2, 5)
+	original[0], original[1] = 1, 2
+	independent := AppendIndependent(original, 3, 4)
+
+	first, firstOK := First(source)
+	last, lastOK := Last([]string{"go", "sql"})
+
 	return fmt.Sprintf(
-		"sum=%d avg=%.1f ok=%t even=%v doubled=%v unique=%v reversed=%v sorted=%v",
-		Sum(numbers),
-		avg,
-		ok,
-		FilterEven(numbers),
-		MapDouble(numbers),
-		Unique(numbers),
-		copyOfNumbers,
-		MergeAndSort([]int{3, 1}, []int{2, 4}),
+		"first=%d/%t last=%s/%t regular=%d/%d limited=%d/%d mutated=%v appendSource=%v appendPart=%v limitedSource=%v limitedPart=%v grow=%t kind=%s independent=%v original=%v",
+		first,
+		firstOK,
+		last,
+		lastOK,
+		regularLen,
+		regularCap,
+		limitedLen,
+		limitedCap,
+		mutated,
+		appendedSource,
+		appendedPart,
+		limitedSource,
+		limitedPart,
+		CanAppendWithoutGrow(original, 3),
+		SliceKind(original),
+		independent,
+		original,
 	)
 }
