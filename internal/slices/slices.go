@@ -1,78 +1,79 @@
 package slices
 
-// В этом блоке нужно закрепить слайсы: append, len, cap, copy, под-слайсы,
-// удаление, вставку, фильтрацию и сортировку.
+// 01. First возвращает первый элемент и true.
+// TODO: для nil и пустого слайса верните zero value и false.
+func First(items []int) (int, bool) { return 0, false }
 
-func NewSlice(numbers ...int) []int {
-	// TODO: создать независимый слайс из переданных чисел.
-	return nil
+// 02. Last возвращает последнюю строку и true.
+// TODO: для nil и пустого слайса верните пустую строку и false.
+func Last(items []string) (string, bool) { return "", false }
+
+// 03. SliceInfo создаёт обычный срез items[low:high].
+// TODO: верните сам срез, его len и cap. В тестах границы корректны.
+func SliceInfo(items []int, low, high int) (part []int, length, capacity int) {
+	return nil, 0, 0
 }
 
-func AppendValue(numbers []int, value int) []int {
-	// TODO: добавить значение в конец слайса.
-	return nil
+// 04. FullSliceInfo создаёт полный срез items[low:high:max].
+// TODO: верните сам срез, его len и cap. В тестах границы корректны.
+func FullSliceInfo(items []int, low, high, max int) (part []int, length, capacity int) {
+	return nil, 0, 0
 }
 
-func Sum(numbers []int) int {
-	// TODO: посчитать сумму элементов.
-	return 0
+// 05. ChangeFirst меняет первый элемент переданного слайса.
+// TODO: пустой слайс оставьте без изменений.
+func ChangeFirst(part []int, value int) {}
+
+// 06. MutateWindowInFunction создаёт срез items[low:high], передаёт его
+// в ChangeFirst и возвращает исходный items.
+// TODO: изменение должно быть видно в исходном слайсе. Пустое окно не меняйте.
+func MutateWindowInFunction(items []int, low, high, value int) []int { return nil }
+
+// 07. AppendWindowInFunction создаёт обычный срез, добавляет value
+// и возвращает исходный слайс вместе с получившимся окном.
+// TODO: поведение должно зависеть от доступной capacity: append может
+// изменить исходный массив или перейти на новый.
+func AppendWindowInFunction(items []int, low, high, value int) (source, part []int) {
+	return nil, nil
 }
 
-func Average(numbers []int) (float64, bool) {
-	// TODO: вернуть среднее и true. Для пустого слайса вернуть 0 и false.
-	return 0, false
+// 08. AppendLimitedWindowInFunction создаёт окно с capacity, ограниченной high,
+// затем добавляет value и возвращает исходный слайс и новое окно.
+// TODO: добавление не должно перезаписывать элемент исходного слайса за high.
+func AppendLimitedWindowInFunction(items []int, low, high, value int) (source, part []int) {
+	return nil, nil
 }
 
-func FilterEven(numbers []int) []int {
-	// TODO: вернуть только чётные числа.
-	return nil
+// 09. Clone возвращает независимую копию значений.
+// TODO: изменение результата не должно менять items. Для nil верните nil.
+func Clone(items []int) []int { return nil }
+
+// 10. ChangeClone создаёт независимую копию, меняет в ней элемент index
+// и возвращает исходный слайс и копию.
+// TODO: в тестах index корректен.
+func ChangeClone(items []int, index, value int) (source, clone []int) {
+	return nil, nil
 }
 
-func MapDouble(numbers []int) []int {
-	// TODO: вернуть новый слайс, где каждый элемент умножен на 2.
-	return nil
-}
+// 11. AppendOne добавляет один элемент и возвращает результат append.
+// TODO: сохраните исходный порядок элементов.
+func AppendOne(items []int, value int) []int { return nil }
 
-func FindIndex(numbers []int, target int) int {
-	// TODO: вернуть индекс target или -1.
-	return 0
-}
+// 12. AppendMany добавляет все values в исходном порядке.
+// TODO: корректно обработайте пустой список добавляемых значений.
+func AppendMany(items []int, values ...int) []int { return nil }
 
-func RemoveAt(numbers []int, index int) []int {
-	// TODO: удалить элемент по индексу и вернуть новый слайс.
-	return nil
-}
+// 13. CanAppendWithoutGrow сообщает, хватает ли текущей capacity для extra
+// новых элементов.
+// TODO: отрицательное extra считается некорректным и даёт false.
+func CanAppendWithoutGrow(items []int, extra int) bool { return false }
 
-func InsertAt(numbers []int, index int, value int) []int {
-	// TODO: вставить value по index. Индекс меньше 0 считать 0, больше len — len.
-	return nil
-}
+// 14. SliceKind классифицирует слайс.
+// TODO: nil -> "nil", ненулевой слайс с len=0 -> "empty",
+// остальные значения -> "filled".
+func SliceKind(items []int) string { return "" }
 
-func CopySlice(numbers []int) []int {
-	// TODO: вернуть независимую копию слайса.
-	return nil
-}
-
-func ReverseInPlace(numbers []int) {
-	// TODO: перевернуть слайс на месте.
-}
-
-func Unique(numbers []int) []int {
-	// TODO: вернуть уникальные числа с сохранением порядка.
-	return nil
-}
-
-func Window(numbers []int, start, end int) []int {
-	// TODO: безопасно вернуть копию под-слайса numbers[start:end].
-	return nil
-}
-
-func Chunk(numbers []int, size int) [][]int {
-	// TODO: разбить слайс на части размера size.
-	return nil
-}
-
-func MergeAndSort(left, right []int) []int {
-	// TODO: объединить два слайса и отсортировать результат по возрастанию.
-	return nil
-}
+// 15. AppendIndependent возвращает независимый результат items+values.
+// TODO: исходный слайс и его базовый массив не должны измениться,
+// даже если в исходной capacity есть свободное место.
+func AppendIndependent(items []int, values ...int) []int { return nil }
